@@ -16,25 +16,25 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="w-1/2 bg-white shadow px-8 py-4 border-2 border-slate-100 rounded">
-      <div className="w-full flex flex-col items-center justify-center">
-        <p className="font-head text-xl text-center font-bold py-2">Masuk</p>
+    <div className="w-1/2 rounded bg-white px-8 py-4 shadow">
+      <div className="flex w-full flex-col items-center justify-center">
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="w-16" alt="Vite logo" />
         </a>
         <div className="w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-4"
-            noValidate>
+            className="space-y-2.5"
+            noValidate
+          >
             {/* Alamat Email */}
-            <div className="space-y-1.5 text-lg">
-              <label className="font-head text-slate-800 font-semibold">
+            <div className="space-y-1.5">
+              <label className="font-head font-semibold text-slate-800">
                 Alamat Email
               </label>
               <input
                 type="email"
-                className="w-full px-2.5 py-1.5 font-body appearance-none border-2 border-slate-600 focus:outline-none focus:border-yellow-400 transition-colors"
+                className="w-full appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none"
                 {...register("email", {
                   required: "Silahkan Masukkan Alamat Email",
                   pattern: {
@@ -44,42 +44,47 @@ const LoginForm = () => {
                 })}
               />
               {errors.email && (
-                <p className="text-red-600 font-head">{errors.email.message}</p>
+                <p className="font-head text-sm text-red-600">
+                  {errors.email.message}
+                </p>
               )}
             </div>
             {/* Kata Sandi */}
-            <div className="space-y-1.5 text-lg">
-              <label className="font-head text-slate-800 font-semibold">
+            <div className="space-y-1.5">
+              <label className="font-head font-semibold text-slate-800">
                 Kata Sandi
               </label>
               <input
                 type="password"
-                className="w-full px-2.5 py-1.5 font-body appearance-none border-2 border-slate-600 focus:outline-none focus:border-yellow-400 transition-colors"
+                className="w-full appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none"
                 {...register("password", {
                   required: "Silahkan Masukkan Kata Sandi",
                   minLength: 8,
                 })}
               />
               {errors.password && (
-                <p className="text-red-600 font-head">
+                <p className="font-head text-sm text-red-600">
                   {errors.password.message}
                   {errors.password.type === "minLength" &&
                     "Kata Sandi Min. 8 Karakter"}
                 </p>
               )}
             </div>
-            <div className="flex flex-row justify-between items-center">
-              <div className="font-body inline-flex text-slate-600">
+            {/* Tombol */}
+            <div className="flex flex-row items-center justify-between">
+              <div className="inline-flex font-body text-sm text-slate-600">
                 Belum Memiliki Akun?&nbsp;
                 <button
                   onClick={() => navigate("/auth/registration")}
-                  className="font-head font-bold text-slate-800">
+                  className="font-head font-bold text-slate-800"
+                >
                   Registrasi
                 </button>
               </div>
               <button
                 type="submit"
-                className="bg-slate-600 rounded text-lg font-semibold px-6 py-2.5 font-head text-white">
+                className="rounded bg-slate-600 px-6 py-2.5 font-head font-semibold text-white"
+              >
                 Masuk
               </button>
             </div>
