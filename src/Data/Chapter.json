@@ -1,0 +1,56 @@
+[
+  {
+    "Title": "Java Syntax",
+    "Slug": "java-syntax",
+    "Total": 2,
+    "Part": [
+      {
+        "Title": "Java Syntax 1",
+        "Slug": "java-syntax-1",
+        "Status": "Tuntas"
+      },
+      {
+        "Title": "Java Syntax 2",
+        "Slug": "java-syntax-2",
+        "Status": "Belum Tuntas"
+      }
+    ]
+  },
+  {
+    "Title": "Java Variables",
+    "Slug": "java-variables",
+    "Total": 5,
+    "Part": [
+      {
+        "Title": "Java Variables 1",
+        "Slug": "java-variables-1",
+        "Status": "Tuntas"
+      },
+      {
+        "Title": "Java Variables 2",
+        "Slug": "java-variables-2",
+        "Status": "Tuntas"
+      },
+      {
+        "Title": "Java Variables 3",
+        "Slug": "java-variables-3",
+        "Status": "Tuntas"
+      },
+      {
+        "Title": "Java Variables 4",
+        "Slug": "java-variables-4",
+        "Status": "Belum Tuntas"
+      },
+      {
+        "Title": "Java Variables 5",
+        "Slug": "java-variables-5",
+        "Status": ""
+      }
+    ]
+  },
+  {
+    "Title": "Java Data Types",
+    "Slug": "java-data-types",
+    "Total": 3
+  }
+]

@@ -1,0 +1,30 @@
+[
+  {
+    "Title": "Java Syntax 1",
+    "Slug": "java-syntax-1",
+    "Status": "Tuntas",
+    "Content": "```Java showLineNumbers\n public {.....} MyClass {\n  public static void main(String[] args) {\n    System.out.[.....](\"Hello World\");\n  }\n}",
+    "Questions": [
+      {
+        "Q": " Sintaks Yang Tepat Untuk Melengkapi Baris Kode 1 Adalah...?"
+      },
+      {
+        "Q": " Sintaks Yang Tepat Untuk Melengkapi Baris Kode 3 Adalah...?"
+      }
+    ]
+  },
+  {
+    "Title": "Java Syntax 2",
+    "Slug": "java-syntax-2",
+    "Status": "Belum Tuntas",
+    "Content": "```Java showLineNumbers\n [.....] This is a single-line comment \n [.....] This is a multi-line comment */",
+    "Questions": [
+      {
+        "Q": " Sintaks Yang Tepat Untuk Melengkapi Baris Kode 1 Adalah...?"
+      },
+      {
+        "Q": " Sintaks Yang Tepat Untuk Melengkapi Baris Kode 2 Adalah...?"
+      }
+    ]
+  }
+]
