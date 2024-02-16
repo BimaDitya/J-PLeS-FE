@@ -1,14 +1,27 @@
+import Markdown from "react-markdown";
 import Content from "@/Data/Content.json";
+import { useForm } from "react-hook-form";
+import rehypePrism from "rehype-prism-plus";
 import UserNavbar from "@/Components/Navbar/UserNavbar";
 import { useParams, useNavigate } from "react-router-dom";
-import Markdown from "react-markdown";
-import rehypePrism from "rehype-prism-plus";
 
 const UserContent = () => {
+  const {
+    reset,
+    register,
+    handleSubmit,
+    formState: { errors, isValid },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
   const { part } = useParams();
-  const { content } = useParams();
   const navigate = useNavigate();
+  const { content } = useParams();
   const dataContent = Content.find((item) => item?.Slug === content);
+
   return (
     <div className="h-screen w-screen flex-col overflow-x-hidden bg-slate-50 text-slate-800">
       <UserNavbar />
@@ -71,14 +84,55 @@ const UserContent = () => {
               <Markdown rehypePlugins={rehypePrism}>
                 {dataContent?.Content}
               </Markdown>
-              <div>
+              <form onSubmit={handleSubmit(onSubmit)} noValidate>
                 <p className="font-head text-lg font-semibold">Pertanyaan</p>
-                {Object.values(dataContent?.Questions).map((item, index) => (
-                  <p key={index} className="py-1.5 font-body">
-                    {index + 1}.&nbsp;{item?.Q}
-                  </p>
-                ))}
-              </div>
+                {dataContent?.Questions &&
+                  Object.values(dataContent.Questions).map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex w-full flex-col items-end py-0.5"
+                    >
+                      <div className="flex w-full flex-row items-center space-y-0.5">
+                        <label
+                          htmlFor={`answers_${index}`}
+                          className="w-1/2 font-body"
+                        >
+                          {index + 1}. {item?.Q}
+                        </label>
+                        <input
+                          id={`answers_${index}`}
+                          type="text"
+                          className={`w-1/2 appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none ${
+                            errors[`answers_${index}`] ? "border-red-400" : ""
+                          }`}
+                          {...register(`answers_${index}`, {
+                            required: "Masukkan Jawaban Anda!",
+                          })}
+                        />
+                      </div>
+                      {errors[`answers_${index}`] && (
+                        <p className="font-head text-red-600">
+                          {errors[`answers_${index}`].message}
+                        </p>
+                      )}
+                    </div>
+                  ))}
+                <div className="space-x-4">
+                  <button
+                    type="submit"
+                    className="rounded bg-slate-600 px-6 py-2.5 font-head font-semibold text-white"
+                  >
+                    Submit
+                  </button>
+                  <button
+                    disabled={!isValid}
+                    onClick={() => reset()}
+                    className="rounded bg-red-400 px-6 py-2.5 font-head font-semibold text-white disabled:cursor-not-allowed disabled:bg-gray-400"
+                  >
+                    Reset
+                  </button>
+                </div>
+              </form>
             </div>
           )}
         </div>
