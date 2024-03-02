@@ -1,28 +1,34 @@
 import viteLogo from "/vite.svg";
-import { useNavigate } from "react-router-dom";
+import LoginModal from "../Modal/LoginModal";
+import RegistrationModal from "../Modal/RegistrationModal";
 
 function MainNavbar() {
-  const navigate = useNavigate();
   return (
-    <nav className="sticky flex h-12 min-w-full flex-row items-center justify-between bg-slate-800 px-24 shadow">
-      <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-        <img src={viteLogo} className="" alt="Vite logo" />
-      </a>
-      <div className="flex flex-row space-x-6 font-head text-lg text-white">
-        <button
-          className="transition-colors hover:text-yellow-400"
-          onClick={() => navigate("/auth/login")}
+    <div className="navbar-sticky navbar bg-primary px-24 shadow">
+      <div className="navbar-start">
+        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
+          <img src={viteLogo} alt="Vite" />
+        </a>
+      </div>
+      <div className="navbar-end ">
+        <label
+          className="px-3.5 font-head text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:text-yellow-400"
+          htmlFor="modal-login"
         >
           Masuk
-        </button>
-        <button
-          className="transition-colors hover:text-yellow-400"
-          onClick={() => navigate("/auth/registration")}
+        </label>
+        <input className="modal-state" id="modal-login" type="checkbox" />
+        <LoginModal />
+        <label
+          className="px-3.5 font-head text-lg font-semibold text-white transition-colors hover:cursor-pointer hover:text-yellow-400"
+          htmlFor="modal-register"
         >
           Registrasi
-        </button>
+        </label>
+        <input className="modal-state" id="modal-register" type="checkbox" />
+        <RegistrationModal />
       </div>
-    </nav>
+    </div>
   );
 }
 

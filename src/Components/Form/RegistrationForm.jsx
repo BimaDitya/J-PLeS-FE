@@ -25,7 +25,7 @@ const RegistrationForm = () => {
         <div className="w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-2.5"
+            className="space-y-4"
             noValidate
           >
             {/* Alamat Email */}
@@ -35,7 +35,7 @@ const RegistrationForm = () => {
               </label>
               <input
                 type="email"
-                className="w-full appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none"
+                className="w-full appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
                 {...register("email", {
                   required: "Silahkan Masukkan Alamat Email",
                   pattern: {
@@ -57,7 +57,7 @@ const RegistrationForm = () => {
               </label>
               <input
                 type="password"
-                className="w-full appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none"
+                className="w-full appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
                 {...register("password", {
                   required: "Silahkan Masukkan Kata Sandi",
                   minLength: 8,
@@ -78,7 +78,7 @@ const RegistrationForm = () => {
               </label>
               <input
                 type="password"
-                className="w-full appearance-none border-2 border-slate-200 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:outline-none"
+                className="w-full appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
                 {...register("cpassword", {
                   required: "Silahkan Masukkan Kata Sandi",
                   minLength: 8,
@@ -108,7 +108,7 @@ const RegistrationForm = () => {
               </div>
               <button
                 type="submit"
-                className="rounded bg-slate-600 px-6 py-2.5 font-head font-semibold text-white transition"
+                className="rounded bg-slate-600 px-6 py-2.5 font-head font-semibold text-white transition hover:bg-slate-800"
               >
                 Registrasi
               </button>

@@ -34,6 +34,6 @@ export default defineConfig({
       },
     },
     minify: true,
-    cssMinify: "lightningcss",
+    cssMinify: "esbuild",
   },
 });

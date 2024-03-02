@@ -8,10 +8,10 @@ const UserPart = () => {
   const navigate = useNavigate();
   const dataPart = Chapter.find((item) => item.Slug === part);
   return (
-    <div className="h-screen w-screen flex-col overflow-x-hidden bg-slate-50 text-slate-800">
+    <div className="h-screen w-screen flex-col overflow-x-hidden text-slate-800">
       <UserNavbar />
-      <div className="flex h-[92.5%] w-full flex-row items-center justify-center px-24 py-8">
-        <div className="flex h-full w-full flex-col items-center space-y-2.5 rounded bg-white px-8 py-4 shadow">
+      <div className="flex h-full w-full flex-row items-center justify-center px-24 pb-8 pt-16">
+        <div className="flex h-full w-full flex-col items-center space-y-2.5 rounded bg-white px-8 pb-8 pt-2.5 shadow">
           <div className="flex w-full flex-row items-center justify-between">
             <button
               className="inline-flex items-center font-head text-lg font-semibold"
