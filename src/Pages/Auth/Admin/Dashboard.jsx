@@ -20,7 +20,7 @@ const AdminDashboard = () => {
               </div>
             </div>
             {/* Content */}
-            <div className="h-full w-full space-y-4 overflow-y-scroll bg-gray-50 p-1.5">
+            <div className="h-full w-full space-y-4 overflow-y-scroll border bg-gray-50 p-2">
               {/* Table */}
               <DashboardTable />
             </div>

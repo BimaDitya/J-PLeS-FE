@@ -8,13 +8,32 @@ function UserDetailModal() {
             <p className="pb-2 text-start font-head text-lg font-semibold">
               User Details
             </p>
+            <label
+              htmlFor="modal-user-detail"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-slate-600 hover:bg-red-200 hover:text-white"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="h-6 w-6"
+              >
+                <path
+                  strokeLinecap="square"
+                  strokeLinejoin="inherit"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </label>
             <div className="flex w-full flex-col space-y-2">
               {/* First Line */}
               <div className="flex w-full space-x-4">
                 {/* First Name */}
                 <div className="w-full space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Nama Depan
+                    First Name
                   </label>
                   <input
                     disabled
@@ -26,7 +45,7 @@ function UserDetailModal() {
                 {/* Last Name */}
                 <div className="w-full space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Nama Belakang
+                    Last Name
                   </label>
                   <input
                     disabled
@@ -41,7 +60,7 @@ function UserDetailModal() {
                 {/* Major */}
                 <div className="w-3/4 space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Program Studi
+                    Study Program
                   </label>
                   <input
                     disabled
@@ -52,7 +71,7 @@ function UserDetailModal() {
                 </div>
                 <div className="w-1/4 space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Angkatan
+                    Force
                   </label>
                   <input
                     disabled
@@ -67,7 +86,7 @@ function UserDetailModal() {
                 {/* Address */}
                 <div className="w-full space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Alamat
+                    Address
                   </label>
                   <input
                     disabled
