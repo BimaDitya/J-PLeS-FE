@@ -1,15 +1,28 @@
-function EditSubjectModal() {
+import Markdown from "react-markdown";
+import { useState } from "react";
+import rehypePrism from "rehype-prism-plus";
+import { useForm, Controller } from "react-hook-form";
+
+function EditExerciseModal() {
+  const { watch, control, register } = useForm();
+
+  const [contents, setContents] = useState("");
+
+  setTimeout(() => {
+    const input = watch("code");
+    setContents(input);
+  }, 7500);
   return (
     <>
-      <div className="modal">
-        <label className="modal-overlay" htmlFor="modal-edit-subject"></label>
-        <div className="modal-content flex w-full flex-col rounded p-4">
+      <div className="modal w-screen">
+        <label className="modal-overlay" htmlFor="modal-edit-exercise"></label>
+        <div className="modal-content flex min-w-[75%] flex-col rounded p-4">
           <div className="flex w-full flex-col items-start justify-center">
             <p className="pb-2 text-start font-head text-lg font-semibold text-slate-600">
-              Edit Subject
+              Edit Exercise
             </p>
             <label
-              htmlFor="modal-edit-subject"
+              htmlFor="modal-edit-exercise"
               className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2 text-slate-600 hover:bg-red-200 hover:text-white"
             >
               <svg
@@ -32,25 +45,45 @@ function EditSubjectModal() {
               <div className="flex w-full space-x-4">
                 <div className="w-full space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Subject Title
+                    Exercise Title
                   </label>
                   <input
-                    value="Java Syntax"
+                    value={"Syntax Exercise 1"}
                     className="w-full appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
                   />
                 </div>
               </div>
               {/* Second Line */}
               <div className="flex w-full space-x-4">
-                {/* Major */}
                 <div className="h-full w-full space-y-0.5">
                   <label className="font-head font-semibold text-slate-800">
-                    Subject Description
+                    Raw Code
                   </label>
-                  <textarea
-                    value="When we consider a Java program, it can be defined as a collection of objects that communicate via invoking each other's methods. Let us now briefly look into what do class, object, methods, and instance variables mean."
-                    className="h-36 w-full resize-none appearance-none border-2 border-slate-200 bg-gray-50 px-1.5 py-0.5 text-justify font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
+                  <Controller
+                    name="code"
+                    control={control}
+                    render={({ ...field }) => (
+                      <textarea
+                        {...field}
+                        value={`~~~Java showLineNumbers
+String fullName = "Bima Aditya"
+~~~`}
+                        className="h-48 w-full resize-none appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
+                        {...register("code")}
+                      />
+                    )}
                   />
+                </div>
+                <div className="h-full w-full space-y-0.5">
+                  <label className="font-head font-semibold text-slate-800">
+                    Preview Code
+                  </label>
+                  <Markdown
+                    className="h-48 w-full resize-none appearance-none border-2 border-slate-200 bg-gray-50 px-2.5 py-1.5 font-body transition-colors focus:border-yellow-400 focus:bg-white focus:outline-none"
+                    rehypePlugins={rehypePrism}
+                  >
+                    {contents}
+                  </Markdown>
                 </div>
               </div>
             </div>
@@ -69,4 +102,4 @@ function EditSubjectModal() {
   );
 }
 
-export default EditSubjectModal;
+export default EditExerciseModal;

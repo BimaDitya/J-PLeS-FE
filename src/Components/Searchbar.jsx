@@ -9,7 +9,7 @@ const Searchbar = () => {
           type="text"
           id="simple-search"
           className="w-full appearance-none border-2 border-slate-200 bg-white px-2.5 py-1.5 font-head transition-colors focus:border-yellow-400 focus:outline-none"
-          placeholder="Search Subject..."
+          placeholder="Search..."
           required
         />
       </div>
